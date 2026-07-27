@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a; /* Hitam pekat estetik */
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#btnOpen {
+    padding: 12px 35px;
+    font-size: 18px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.4s;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+}
+
+#btnOpen:hover {
+    background: #fff;
+    color: #0a0a0a;
+}
+
+.content {
+    max-width: 85%;
+}
+
+#storyText {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.8;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0 !important;
+}
+
+/* Style khusus buat kalimat sakti lu di akhir */
+.final-quote {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 26px !important;
+    color: #ffb6b9; /* Warna pink pastel lembut */
+}
+
+.hint {
+    position: absolute;
+    bottom: 40px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.4;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.7; }
+}
+
+/* === EFEK PARTIKEL INTERAKTIF === */
+.particle {
+    position: absolute;
+    pointer-events: none; /* Biar partikelnya gak ngehalangin tombol pas diklik */
+    animation: terbang 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    z-index: 9999;
+    text-shadow: 0 0 10px rgba(255, 182, 185, 0.8);
+}
+
+@keyframes terbang {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        /* Terbang ke atas sambil muter dikit dan ngilang */
+        transform: translate(-50%, -150px) scale(1.5) rotate(45deg);
+        opacity: 0;
+    }
+}
